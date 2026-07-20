@@ -1,10 +1,12 @@
+import Memocompoonent from "./components/memocomponent";
 import RefComponent from "./components/RefComponent";
 
 function App() {
   return (
     <>
       hello world
-      <RefComponent />
+      {/* <RefComponent /> */}
+      <Memocompoonent />
     </>
   );
 }
