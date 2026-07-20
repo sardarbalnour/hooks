@@ -1,4 +1,4 @@
-import Memocompoonent from "./components/memocomponent";
+import Memocompoonent from "./components/Memocomponent";
 import RefComponent from "./components/RefComponent";
 
 function App() {
