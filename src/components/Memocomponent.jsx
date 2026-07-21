@@ -1,7 +1,8 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import ChildComponent from "./ChildComponent";
 
 function Memocompoonent() {
+  console.log("mem0 is rendered");
   const [count, setCount] = useState(0);
   const [num, setNum] = useState(0);
 
@@ -10,14 +11,18 @@ function Memocompoonent() {
     return count;
   }, [count]);
 
+  const clickHandler = useCallback(() => {
+    setNum((num) => num + 1);
+  }, [num]);
+
   return (
     <div>
       <span>{slow}</span>
       <button onClick={() => setCount((count) => count + 1)}>+</button>
-      {/* <ChildComponent num={num} /> */}
+      <ChildComponent num={num} clickHandler={clickHandler} />
       <br />
-      <span>{num}</span>
-      <button onClick={() => setNum((num) => num + 1)}>+</button>
+      {/* <span>{num}</span>
+      <button onClick={() => setNum((num) => num + 1)}>+</button> */}
     </div>
   );
 }
