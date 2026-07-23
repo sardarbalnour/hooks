@@ -23,9 +23,7 @@ function TransitionComponent() {
   return (
     <div>
       <input type="text" value={value} onChange={changeHandler} />
-      {counter.map((i) => (
-        <p key={i}>{i}</p>
-      ))}
+      {isPending ? <h1>Loading...</h1> : counter.map((i) => <p key={i}>{i}</p>)}
     </div>
   );
 }
