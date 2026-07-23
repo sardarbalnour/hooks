@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useTransition } from "react";
 
 function arrayCreator(number = 10) {
   const myArray = [];
@@ -13,10 +13,11 @@ function TransitionComponent() {
   console.log("transition component is rendered");
   const [value, setValue] = useState("");
   const [counter, setCounter] = useState(arrayCreator());
+  const [isPending, startTransition] = useTransition();
 
   const changeHandler = (event) => {
     setValue(event.target.value);
-    setCounter(arrayCreator(event.target.value));
+    startTransition(() => setCounter(arrayCreator(event.target.value)));
   };
 
   return (
