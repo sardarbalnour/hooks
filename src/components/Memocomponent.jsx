@@ -1,10 +1,13 @@
 import { useCallback, useMemo, useState } from "react";
 import ChildComponent from "./ChildComponent";
+import { useTitle } from "../hooks/useTitle";
 
 function Memocompoonent() {
   console.log("mem0 is rendered");
   const [count, setCount] = useState(0);
   const [num, setNum] = useState(0);
+
+  useTitle("memo page");
 
   const slow = useMemo(() => {
     for (let index = 0; index < 1000000000; index++) {}
@@ -28,4 +31,3 @@ function Memocompoonent() {
 }
 
 export default Memocompoonent;
- 

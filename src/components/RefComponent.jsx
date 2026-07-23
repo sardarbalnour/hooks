@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useTitle } from "../hooks/useTitle";
 
 function RefComponent() {
   const input = useRef(null);
@@ -6,6 +7,8 @@ function RefComponent() {
   useEffect(() => {
     input.current.focus();
   }, []);
+
+  useTitle("ref page");
 
   console.log("render");
 
